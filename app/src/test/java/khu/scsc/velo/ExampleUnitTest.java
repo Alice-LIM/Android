@@ -1,4 +1,4 @@
-package seoul.iot.biketrainner;
+package khu.scsc.velo;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package seoul.iot.biketrainner;
+package khu.scsc.velo;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -93,7 +93,7 @@ public class SignInActivity extends AppCompatActivity implements LoaderCallbacks
                 return false;
             }
         });
-
+//
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override

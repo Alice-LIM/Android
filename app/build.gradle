@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.2"
     defaultConfig {
-        applicationId "seoul.iot.biketrainner"
+        applicationId "khu.scsc.velo"
         minSdkVersion 23
         targetSdkVersion 25
         versionCode 1
@@ -20,6 +20,9 @@ android {
 }
 
 dependencies {
+
+    implementation 'com.google.android.gms:play-services-maps:10.0.1' //구글맵스 API사용을 위한 라이브러리
+    implementation 'com.google.android.gms:play-services-location:10.0.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
