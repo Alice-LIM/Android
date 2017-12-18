@@ -1,4 +1,4 @@
-package seoul.iot.biketrainner;
+package khu.scsc.velo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

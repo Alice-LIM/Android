@@ -14,7 +14,7 @@
         android:background="#FFFFFF">
         <View
             android:id="@+id/map_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:background="#FFFFFF"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -41,10 +41,12 @@
             app:layout_constraintRight_toRightOf="@+id/map_title"
             app:layout_constraintBottom_toBottomOf="@+id/map_title"/>
 
+        //맵 프래그넌트
         <fragment
             android:id="@+id/map"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="440dp"
+            android:layout_below="@+id/map_title"
             class="com.google.android.gms.maps.MapFragment" />
 
         <Button
@@ -96,17 +98,20 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Button
+            android:id="@+id/t_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="01:32:29"
+            android:background="@drawable/end_button"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="-1.2sp"
             android:gravity="center"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/pause"
+            android:layout_marginBottom="40dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="운동 시작"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView
