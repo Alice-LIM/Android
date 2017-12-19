@@ -85,6 +85,18 @@ public class TrainingActivity extends AppCompatActivity
     private Button mapBtn;
     private ImageButton naviCloseBtn;
     private int[] ZONE_START = {50, 60, 70, 80, 90, 100};
+    private TimeManager timeManager = TimeManager.getInstance();
+    private TimeManager.TimeCallback timeCallback = new TimeManager.TimeCallback() {
+        @Override
+        public void perSecond(final int count) {
+            TrainingActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mBtnEnd.setText(String.format("%02d:%02d:%02d", count / 3600, (count % 3600) / 60, (count % 60)));
+                }
+            });
+        }
+    };
 
     private final ServiceConnection usbConnection = new ServiceConnection() {
         @Override
@@ -164,38 +176,20 @@ public class TrainingActivity extends AppCompatActivity
         });
 
         mBtnEnd.setOnClickListener(new View.OnClickListener() {
-            TimerTask timerTask;
-            Timer timer;
-            boolean isRun = false;
-            long count = 0;
 
             @Override
             public void onClick(View v) {
-                if(!isRun) {
+                TimeManager timeManager = TimeManager.getInstance();
+                if(!timeManager.isRun()) {
                     leftZone.setVisibility(View.VISIBLE);
                     centerZone.setVisibility(View.VISIBLE);
                     rightZone.setVisibility(View.VISIBLE);
                     ment.setVisibility(View.VISIBLE);
 
-                    count = 0;
-
                     mBtnEnd.setBackgroundResource(R.drawable.pause);
                     mBtnEnd.setText("00:00:00");
-                    timerTask = new TimerTask() {
-                        @Override
-                        public void run() {
-                            TrainingActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    count++;
-                                    mBtnEnd.setText(String.format("%02d:%02d:%02d", count / 3600, (count % 3600) / 60, (count % 60)));
-                                }
-                            });
-                        }
-                    };
-                    timer = new Timer();
-                    timer.schedule(timerTask, 1000, 1000);
-                    isRun = true;
+
+                    timeManager.run(timeCallback);
                 }
                 else {
                     leftZone.setVisibility(View.INVISIBLE);
@@ -204,11 +198,9 @@ public class TrainingActivity extends AppCompatActivity
                     ment.setVisibility(View.INVISIBLE);
                     mIvZoneCircle.setBackground(getDrawable(R.drawable.circle));
 
-                    timerTask.cancel();
-                    timer.cancel();
+                    timeManager.stop();
                     mBtnEnd.setBackgroundResource(R.drawable.end_button);
                     mBtnEnd.setText("운동 시작");
-                    isRun = false;
                 }
             }
         });
@@ -266,6 +258,27 @@ public class TrainingActivity extends AppCompatActivity
         super.onResume();
         setFilters();  // Start listening notifications from UsbService
         startService(UsbService.class, usbConnection, null); // Start UsbService(if it was not started before) and Bind it
+        if(timeManager.isRun()) {
+            leftZone.setVisibility(View.VISIBLE);
+            centerZone.setVisibility(View.VISIBLE);
+            rightZone.setVisibility(View.VISIBLE);
+            ment.setVisibility(View.VISIBLE);
+
+            mBtnEnd.setBackgroundResource(R.drawable.pause);
+            int count = timeManager.getCount();
+            mBtnEnd.setText(String.format("%02d:%02d:%02d", count / 3600, (count % 3600) / 60, (count % 60)));
+            timeManager.setCallback(timeCallback);
+        }
+        else {
+            leftZone.setVisibility(View.INVISIBLE);
+            centerZone.setVisibility(View.INVISIBLE);
+            rightZone.setVisibility(View.INVISIBLE);
+            ment.setVisibility(View.INVISIBLE);
+            mIvZoneCircle.setBackground(getDrawable(R.drawable.circle));
+
+            mBtnEnd.setBackgroundResource(R.drawable.end_button);
+            mBtnEnd.setText("운동 시작");
+        }
     }
 
     @Override

@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="맵"
+            android:text="네비게이션"
             android:textSize="14sp"
             android:textColor="#1d254f"
             app:layout_constraintLeft_toLeftOf="@+id/map_title"
@@ -45,8 +45,8 @@
         <fragment
             android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="440dp"
-            android:layout_below="@+id/map_title"
+            android:layout_height="400dp"
+            app:layout_constraintTop_toBottomOf="@+id/map_title"
             class="com.google.android.gms.maps.MapFragment" />
 
         <Button
@@ -146,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="202dp"
-                android:text="patryk.kyungho"
+                android:text="Alice_lim"
                 android:textSize="12.5sp"
                 android:textColor="#091037"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -165,9 +165,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="311dp"
+                android:layout_marginTop="380dp"
                 android:gravity="center"
-                android:text="대시보드\n\n라이딩 기록\n\n심박 순위판\n\n프로필"
+                android:text="대시보드\n\n네비게이션\n\n심박 그래프"
                 android:textSize="18sp"
                 android:textColor="#344b8e"
                 app:layout_constraintLeft_toLeftOf="parent"

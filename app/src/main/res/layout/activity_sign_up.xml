@@ -57,7 +57,7 @@
     <ImageView
         android:layout_width="112dp"
         android:layout_height="112dp"
-        android:layout_marginTop="133dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/photo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,7 +67,7 @@
         android:id="@+id/login_form"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="311dp"
+        android:layout_marginTop="270dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -85,6 +85,7 @@
                 android:textSize="10sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
+                android:
 
             <AutoCompleteTextView
                 android:id="@+id/su_id_edit"
@@ -95,6 +96,8 @@
                 android:layout_marginRight="25dp"
                 android:textSize="12.5sp"
                 android:hint="이메일을 입력해주세요."
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textColorHint="#4c0b1239"
                 android:textColor="#091037"
                 android:inputType="textEmailAddress"

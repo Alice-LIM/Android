@@ -129,7 +129,7 @@
                 android:background="@drawable/circle">
             </ImageView>
 
-            <!--도균이가 좋아하는 스크류바-->
+            <!--테스트 버튼 만들어봄 -->
             <Button
                 android:id="@+id/buttonScrewBar"
                 android:layout_width="wrap_content"
@@ -192,7 +192,7 @@
             android:letterSpacing="0.05"
             android:lineSpacingExtra="9.3sp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="0dp"
             android:visibility="invisible"
             android:text="오랫 동안, 편안한 라이딩을 해주세요.\n신체가 예열 또는 회복되고 있습니다."
             app:layout_constraintLeft_toLeftOf="parent"
@@ -250,7 +250,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="202dp"
-                    android:text="patryk.kyungho"
+                    android:text="Alice_lim"
                     android:textSize="12.5sp"
                     android:textColor="#091037"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -269,9 +269,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="311dp"
+                    android:layout_marginTop="380dp"
                     android:gravity="center"
-                    android:text="대시보드\n\n라이딩 기록\n\n심박 순위판\n\n프로필"
+                    android:text="대시보드\n\n네비게이션\n\n심박 그래프"
                     android:textSize="18sp"
                     android:textColor="#344b8e"
                     app:layout_constraintLeft_toLeftOf="parent"
