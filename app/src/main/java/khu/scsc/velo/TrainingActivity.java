@@ -42,6 +42,7 @@ public class TrainingActivity extends AppCompatActivity
     private static final String TAG = "TrainingActivity";
     private static final int ZONE_SIZE = 6;
 
+    // for Testing
     /*
      * Notifications from UsbService will be received here.
      */
